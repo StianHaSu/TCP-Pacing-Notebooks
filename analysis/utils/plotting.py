@@ -6,6 +6,9 @@ from matplotlib import pyplot as plt
 import matplotlib.ticker as ticker
 from scapy.utils import rdpcap
 
+from analysis.utils.GraphConfig import GraphConfig
+from analysis.utils.GraphData import GraphData
+
 plt.rcParams.update({
     'font.size': 16,          # base font size
     'axes.titlesize': 20,     # title size
@@ -17,16 +20,32 @@ plt.rcParams.update({
 })
 
 def plot_packets_from_pcap_file(
-        filename: str,
-        title: str,
-        include_acks: bool = True,
-        save_plot: bool = False
+    graph_config: GraphConfig
 ):
-    pcap = rdpcap(filename)
+    pcap = rdpcap(graph_config.filename)
     packets = get_data_from_packets(pcap)
 
-    plot_packets(packets[0], packets[1], packets[2], packets[3],
-                 title, include_acks=include_acks, save=save_plot)
+    graph_data = GraphData(packets[0], packets[1], packets[2], packets[3])
+
+    plot_packets(graph_data, graph_config)
+
+
+def plot_packets_from_pcap_files(
+    graph_config_list: list[GraphConfig]
+):
+    graphs = []
+    for graph_config in graph_config_list:
+        pcap = rdpcap(graph_config.filename)
+        packets = get_data_from_packets(pcap)
+
+        graph_data = GraphData(packets[0], packets[1], packets[2], packets[3])
+        graphs.append((graph_config, graph_data))
+
+    plot_packets_from_multiple_files(graphs, "All runs")
+
+
+
+
 
 def get_data_from_packets(packets):
     data_x = []
@@ -72,19 +91,45 @@ def get_data_from_packets(packets):
     return data_x, data_y, ack_x, ack_y
 
 
-def plot_packets(data_x, data_y, ack_x, ack_y, title: str, include_acks: bool, save: bool = False):
+def plot_packets(graph_data: GraphData, graph_config: GraphConfig):
     plt.figure(figsize=(10, 6))
 
-    cutoff = 300
-
-    data_x = data_x[0:cutoff]
-    data_y = data_y[0:cutoff]
-    ack_x = ack_x[0:cutoff]
-    ack_y = ack_y[0:cutoff]
+    data_x = graph_data.data_x[0:graph_config.cutoff]
+    data_y = graph_data.data_y[0:graph_config.cutoff]
+    ack_x = graph_data.ack_x[0:graph_config.cutoff]
+    ack_y = graph_data.ack_y[0:graph_config.cutoff]
 
     plt.scatter(data_x, data_y, color='blue', label='Data packets', alpha=0.6)
-    if include_acks:
+    if graph_config.include_acks:
         plt.scatter(ack_x, ack_y, color='red', label='ACKs', alpha=0.6, marker="x")
+
+    plt.xlabel('Time since beginning (ms)')
+    plt.ylabel('Sequence / ACK Number')
+    plt.title(graph_config.title)
+    plt.legend()
+    plt.yscale('linear')
+    plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f'{int(x):,}'))
+    plt.grid(True)
+    plt.tight_layout()
+
+    if graph_config.save_plot:
+        name = "_".join(graph_config.title.split(" "))
+        print("Name: ", name)
+        plt.savefig(name + ".pdf")
+
+
+def plot_packets_from_multiple_files(graphs: list[tuple[GraphConfig, GraphData]], title: str):
+    plt.figure(figsize=(10, 6))
+
+    for graph_config, graph_data in graphs:
+        data_x = graph_data.x_data[0:graph_config.cutoff]
+        data_y = graph_data.y_data[0:graph_config.cutoff]
+        ack_x = graph_data.x_acks[0:graph_config.cutoff]
+        ack_y = graph_data.y_acks[0:graph_config.cutoff]
+
+        plt.scatter(data_x, data_y, color=graph_config.color, label=graph_config.label, alpha=0.6, marker=graph_config.marker)
+        if graph_config.include_acks:
+            plt.scatter(ack_x, ack_y, color='red', label='ACKs', alpha=0.6, marker="x")
 
     plt.xlabel('Time since beginning (ms)')
     plt.ylabel('Sequence / ACK Number')
@@ -94,13 +139,6 @@ def plot_packets(data_x, data_y, ack_x, ack_y, title: str, include_acks: bool, s
     plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f'{int(x):,}'))
     plt.grid(True)
     plt.tight_layout()
-
-    if save:
-        name = "_".join(title.split(" "))
-        print("Name: ", name)
-        plt.savefig(name + ".pdf")
-
-    plt.show()
 
 
 
