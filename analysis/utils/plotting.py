@@ -136,8 +136,8 @@ def plot_packets_from_multiple_files(graphs: list[tuple[GraphConfig, GraphData]]
         if graph_config.include_acks:
             plt.scatter(ack_x, ack_y, color='red', label='ACKs', alpha=0.6, marker="x")
 
-    optimal = generate_optimal_data(cutoff, 200, 10)
-    plt.plot(optimal[0], optimal[1], 'ro', label='Optimal')
+    #optimal = generate_optimal_data(cutoff, 200, 10)
+    #plt.plot(optimal[0], optimal[1], 'ro', label='Optimal')
 
     plt.xlabel('Time since beginning (ms)')
     plt.ylabel('Sequence / ACK Number')
