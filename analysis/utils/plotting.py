@@ -20,31 +20,36 @@ plt.rcParams.update({
 })
 
 def plot_packets_from_pcap_file(
-    graph_config: GraphConfig
+    graph_config: GraphConfig, graph_data: GraphData = None, cutoff: int = -1
 ):
-    pcap = rdpcap(graph_config.filename)
+
+    graph_data = graph_data if graph_data is not None else get_data_from_pcap(graph_config.filename)
+    plot_packets(graph_data, graph_config, cutoff)
+
+    return graph_data
+
+
+def plot_packets_from_pcap_files(
+    graph_config_list: list[GraphConfig], graphs: list[tuple[GraphConfig, GraphData]] = None,  cutoff: int = -1
+):
+    graphs = graphs if graphs is not None else get_data_from_pcap_files(graph_config_list)
+
+    plot_packets_from_multiple_files(graphs, "All runs", cutoff)
+
+    return graphs
+
+
+def get_data_from_pcap_files(graph_config_list: list[GraphConfig]):
+    return [(graph_config, get_data_from_pcap(graph_config.filename)) for graph_config in graph_config_list]
+
+
+def get_data_from_pcap(filename: str):
+    pcap = rdpcap(filename)
     packets = get_data_from_packets(pcap)
 
     graph_data = GraphData(packets[0], packets[1], packets[2], packets[3])
 
-    plot_packets(graph_data, graph_config)
-
-
-def plot_packets_from_pcap_files(
-    graph_config_list: list[GraphConfig]
-):
-    graphs = []
-    for graph_config in graph_config_list:
-        pcap = rdpcap(graph_config.filename)
-        packets = get_data_from_packets(pcap)
-
-        graph_data = GraphData(packets[0], packets[1], packets[2], packets[3])
-        graphs.append((graph_config, graph_data))
-
-    plot_packets_from_multiple_files(graphs, "All runs")
-
-
-
+    return graph_data
 
 
 def get_data_from_packets(packets):
@@ -91,13 +96,13 @@ def get_data_from_packets(packets):
     return data_x, data_y, ack_x, ack_y
 
 
-def plot_packets(graph_data: GraphData, graph_config: GraphConfig):
+def plot_packets(graph_data: GraphData, graph_config: GraphConfig, cutoff: int = -1):
     plt.figure(figsize=(10, 6))
 
-    data_x = graph_data.data_x[0:graph_config.cutoff]
-    data_y = graph_data.data_y[0:graph_config.cutoff]
-    ack_x = graph_data.ack_x[0:graph_config.cutoff]
-    ack_y = graph_data.ack_y[0:graph_config.cutoff]
+    data_x = graph_data.data_x[0:cutoff]
+    data_y = graph_data.data_y[0:cutoff]
+    ack_x = graph_data.ack_x[0:cutoff]
+    ack_y = graph_data.ack_y[0:cutoff]
 
     plt.scatter(data_x, data_y, color='blue', label='Data packets', alpha=0.6)
     if graph_config.include_acks:
@@ -118,18 +123,21 @@ def plot_packets(graph_data: GraphData, graph_config: GraphConfig):
         plt.savefig(name + ".pdf")
 
 
-def plot_packets_from_multiple_files(graphs: list[tuple[GraphConfig, GraphData]], title: str):
+def plot_packets_from_multiple_files(graphs: list[tuple[GraphConfig, GraphData]], title: str, cutoff: int = -1):
     plt.figure(figsize=(10, 6))
 
     for graph_config, graph_data in graphs:
-        data_x = graph_data.x_data[0:graph_config.cutoff]
-        data_y = graph_data.y_data[0:graph_config.cutoff]
-        ack_x = graph_data.x_acks[0:graph_config.cutoff]
-        ack_y = graph_data.y_acks[0:graph_config.cutoff]
+        data_x = graph_data.x_data[0:cutoff]
+        data_y = graph_data.y_data[0:cutoff]
+        ack_x = graph_data.x_acks[0:cutoff]
+        ack_y = graph_data.y_acks[0:cutoff]
 
         plt.scatter(data_x, data_y, color=graph_config.color, label=graph_config.label, alpha=0.6, marker=graph_config.marker)
         if graph_config.include_acks:
             plt.scatter(ack_x, ack_y, color='red', label='ACKs', alpha=0.6, marker="x")
+
+    optimal = generate_optimal_data(cutoff, 200, 10)
+    plt.plot(optimal[0], optimal[1], 'ro', label='Optimal')
 
     plt.xlabel('Time since beginning (ms)')
     plt.ylabel('Sequence / ACK Number')
@@ -140,6 +148,29 @@ def plot_packets_from_multiple_files(graphs: list[tuple[GraphConfig, GraphData]]
     plt.grid(True)
     plt.tight_layout()
 
+
+def plot_optimal(cutoff, rtt, multiplier):
+    optimal = generate_optimal_data(cutoff, rtt, multiplier)
+    plt.plot(optimal[0], optimal[1], 'ro', label='Optimal')
+
+
+def generate_optimal_data(cutoff, rtt, multiplier):
+    x_values = []
+    y_values = []
+
+    for i in range(10):
+        y_values.append(i)
+        x_values.append(0)
+
+
+    for i in range(10, cutoff):
+        y_values.append(i)
+
+        x = 1000 / (rtt * (np.log2(i+1) - np.log2(i)))
+        #x *= multiplier
+        x_values.append(x)
+
+    return x_values, y_values
 
 
 def normalize_y_axis(seq_nrs: list[int], low: int):
