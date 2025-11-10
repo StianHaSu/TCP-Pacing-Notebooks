@@ -53,7 +53,7 @@ def run():
 
     print(h3.name, 'iperf ->', h3.cmd('iperf -s1'))
     print(h1.name, 'iperf ->', h1.cmd('iperf -c %s -t 30' % h3.IP()))
-    print(h2.name, 'iperf ->', h1.cmd('iperf -c %s -t 30' % h3.IP()))
+    print(h2.name, 'iperf ->', h2.cmd('iperf -c %s -t 30' % h3.IP()))
 
     # Drop to interactive CLI when you’re ready
     CLI(net)
