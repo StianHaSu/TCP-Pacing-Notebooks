@@ -3,6 +3,14 @@ from mininet.link import TCLink
 from mininet.node import Host
 from mininet.net import Mininet
 
+
+"""
+Topology:  
+()                ()
+   \___()___()___/
+   /             \
+()                ()
+"""
 class HostWithLocalname(Host):
     def config(self, **params):
         r = super().config(**params)
@@ -22,12 +30,16 @@ class SimpleTopology(Topo):
         h4 = self.addHost('h4', cls=HostWithLocalname)
 
         s1 = self.addSwitch("s1")
+        s2 = self.addSwitch("s2")
 
         # Add links
         self.addLink(h1, s1, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
         self.addLink(h2, s1, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
-        self.addLink(h3, s1, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
-        self.addLink(h4, s1, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
+
+        self.addLink(s1, s2, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
+
+        self.addLink(h3, s2, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
+        self.addLink(h4, s2, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
 
 # Topology entry point
 topos = {'mytopo': SimpleTopology}
