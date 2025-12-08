@@ -30,11 +30,12 @@ def plot_packets_from_pcap_file(
 
 
 def plot_packets_from_pcap_files(
-    graph_config_list: list[GraphConfig], graphs: list[tuple[GraphConfig, GraphData]] = None,  cutoff: int = -1
+    graph_config_list: list[GraphConfig], graphs: list[tuple[GraphConfig, GraphData]] = None,  cutoff: int = -1,
+        title = "All runs"
 ):
     graphs = graphs if graphs is not None else get_data_from_pcap_files(graph_config_list)
 
-    plot_packets_from_multiple_files(graphs, "All runs", cutoff)
+    plot_packets_from_multiple_files(graphs, title, cutoff)
 
     return graphs
 
