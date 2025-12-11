@@ -1,0 +1,7 @@
+tracepoint:tcp:tcp_retransmit_skb
+{
+    printf("LOSS on %s:%d -> %s:%d  ssthresh=%d cwnd=%d\n",
+        ntop(args->saddr), args->sport,
+        ntop(args->daddr), args->dport,
+        args->ssthresh, args->cwnd);
+}

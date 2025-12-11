@@ -9,8 +9,8 @@ class SimpleTopology(Topo):
         s1 = self.addSwitch("s1")
         
         # Add links
-        self.addLink(h1, s1, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
-        self.addLink(h2, s1, cls=TCLink, bw=50, delay="50ms", max_queue_size=25, fq_rate="10Mbit")
+        self.addLink(h1, s1, cls=TCLink, bw=50, delay="15ms", max_queue_size=25, fq_rate="10Mbit")
+        self.addLink(h2, s1, cls=TCLink, bw=50, delay="15ms", max_queue_size=25, fq_rate="10Mbit")
 
 # Topology entry point
 topos = {'mytopo': SimpleTopology}
