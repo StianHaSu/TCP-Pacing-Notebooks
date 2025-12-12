@@ -111,7 +111,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50):
         
         h1.cmd(f"wc -l {log_file}")
 
-        ssthresh_log = f"{output_dir}/ssthresh/sstresh-queue-{q}.txt"
+        ssthresh_log = f"{output_dir}/ssthresh/ssthresh-queue-{q}.txt"
         h1.cmd(f"grep 'ssthresh:' {log_file} | head -100 > {ssthresh_log}")
         
         net.stop()
