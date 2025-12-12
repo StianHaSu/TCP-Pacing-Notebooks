@@ -1,7 +1,10 @@
-tracepoint:tcp:tcp_retransmit_skb
+#!/usr/bin/env bpftrace
+
+kprobe:tcp_enter_loss
 {
-    printf("LOSS on %s:%d -> %s:%d  ssthresh=%d cwnd=%d\n",
-        ntop(args->saddr), args->sport,
-        ntop(args->daddr), args->dport,
-        args->ssthresh, args->cwnd);
+    $sk = (struct sock *)arg0;
+    $tp = (struct tcp_sock *)$sk;
+    
+    printf("LOSS detected - ssthresh=%u cwnd=%u\n",
+           $tp->snd_ssthresh, $tp->snd_cwnd);
 }
