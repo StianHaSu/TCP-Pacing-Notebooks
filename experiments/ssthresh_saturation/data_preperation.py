@@ -12,9 +12,9 @@ def get_sshthresh_from_file(file_name: str):
 
             if ssthresh.split(":")[0] == "ssthresh":
                 if first_loss[1] is None:
-                    first_loss = (ssthresh, time)
+                    first_loss = (ssthresh.split(":")[1], time)
                 elif ssthresh != first_loss[0]:
-                    second_loss = (ssthresh, time)
+                    second_loss = (ssthresh.split(":")[1], time)
                     break
 
     return first_loss, second_loss
