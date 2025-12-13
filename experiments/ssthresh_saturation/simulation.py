@@ -97,7 +97,7 @@ def main():
     os.mkdir(time)
     os.mkdir(time+"/ssthresh")
     os.mkdir(time+"/complete")
-    run_experiments(time, queue_sizes, 10)
+    run_experiments(time, queue_sizes, 5)
 
 
 if __name__ == "__main__":
