@@ -21,7 +21,7 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=1000,
             delay=delay,
-            #max_queue_size=max_queue_size
+            max_queue_size=25
         )
 
         self.addLink(
@@ -29,41 +29,8 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=bw,
             delay=delay,
-            #max_queue_size=max_queue_size,
+            max_queue_size=25,
         )
-
-
-def attach_aqm_to_switch(net, max_queue_size):
-    """
-    Attach fq_codel as child qdisc on the switch ports.
-
-    Layout we aim for (per s1-ethX):
-
-        root htb ...
-          class ...
-            qdisc 10: netem delay 7.5ms
-              qdisc 20: fq_codel  (AQM queue)
-
-    Mininet normally uses handle 10: for netem; we use that as parent.
-    """
-    s1 = net.get('s1')
-
-    # Adjust interface names if Mininet uses different ones
-    switch_intfs = ['s1-eth1', 's1-eth2']
-
-    for intf in switch_intfs:
-        # Optional: see what Mininet created
-        print(s1.cmd(f'tc qdisc show dev {intf}'))
-
-        # Attach fq_codel under the existing netem qdisc (handle 10:)
-        # limit controls how many packets can sit in the fq_codel queue
-        s1.cmd(
-            f'tc qdisc add dev {intf} parent 10: handle 20: '
-            f'fq_codel limit {max_queue_size}'
-        )
-
-        # Optional: verify
-        print(s1.cmd(f'tc qdisc show dev {intf}'))
 
 
 def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50):
@@ -79,7 +46,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50):
         net = Mininet(topo=topo, link=TCLink, controller=OVSController)
         net.start()
 
-        attach_aqm_to_switch(net, max_queue_size=q)
+        #attach_aqm_to_switch(net, max_queue_size=q)
         
         h1, h2 = net.get('h1', 'h2')
         net.get('s1')
@@ -122,6 +89,7 @@ def main():
 
     # Define the queue sizes (in packets) you want to test
     queue_sizes = [x for x in range(5, 255, 5)]
+    #queue_sizes = [50]
 
     time = datetime.now()
     time = str(time).replace(" ", "_")
