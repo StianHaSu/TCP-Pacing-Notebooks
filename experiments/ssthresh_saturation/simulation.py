@@ -21,7 +21,7 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=1000,
             delay=delay,
-            max_queue_size=25
+            max_queue_size=max_queue_size
         )
 
         self.addLink(
@@ -29,7 +29,7 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=bw,
             delay=delay,
-            max_queue_size=25,
+            max_queue_size=max_queue_size,
         )
 
 
@@ -89,7 +89,7 @@ def main():
 
     # Define the queue sizes (in packets) you want to test
     queue_sizes = [x for x in range(5, 255, 5)]
-    #queue_sizes = [50]
+    #queue_sizes = [25]
 
     time = datetime.now()
     time = str(time).replace(" ", "_")
