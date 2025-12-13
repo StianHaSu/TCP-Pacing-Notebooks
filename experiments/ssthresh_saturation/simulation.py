@@ -29,7 +29,7 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=bw,
             delay=delay,
-            max_queue_size=int(max_queue_size),
+            max_queue_size=int(max_queue_size/2),
         )
 
 
@@ -68,7 +68,8 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50):
         time.sleep(0.5)  
 
         # Pacing add: --fq-rate 100M
-        h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time} ")
+        h1.cmd("sysctl -w net.ipv4.tcp_ss_pacing_multiplier=8")
+        h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time} --fq-rate 100M")
 
         time.sleep(1)
 
