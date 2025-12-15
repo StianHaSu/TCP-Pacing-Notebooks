@@ -113,7 +113,7 @@ def main():
         f.write(f"CC Algorithm: {cc_algorithm}")
         f.write(f"Pacing multiplier: {pacing_multiplier}")
 
-    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=8)
+    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=1)
 
 
 if __name__ == "__main__":
