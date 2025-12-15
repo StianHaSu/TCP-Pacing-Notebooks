@@ -35,7 +35,7 @@ class SimpleTopology(Topo):
         )
 
 
-def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50):
+def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, pacing_multiplier=1):
     """
     Run one Mininet experiment per queue size.
       - queue_sizes: list of max_queue_size values (in packets)
@@ -70,7 +70,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50):
         time.sleep(0.5)  
 
         # Pacing add: --fq-rate 100M
-        h1.cmd("sysctl -w net.ipv4.tcp_ss_pacing_multiplier=8")
+        #h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
         h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time} --fq-rate 100M")
 
         time.sleep(1)
