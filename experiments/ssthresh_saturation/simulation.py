@@ -13,7 +13,7 @@ class SimpleTopology(Topo):
     """
     h1 --- s1 --- h2
     """
-    def build(self, max_queue_size, bw, delay="15ms"):
+    def build(self, max_queue_size, bw, delay="7.5ms"):
         h1 = self.addHost('h1')
         h2 = self.addHost('h2')
         s1 = self.addSwitch("s1")
@@ -22,8 +22,8 @@ class SimpleTopology(Topo):
             h1, s1,
             cls=TCLink,
             bw=1000,
-            delay="0ms",
-            max_queue_size=15,
+            delay=delay,
+            max_queue_size=max_queue_size,
             use_htb=True
         )
 
@@ -70,7 +70,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
         time.sleep(0.5)  
 
         # Pacing add: --fq-rate 100M
-        h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
+        #h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
         h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time} --fq-rate 100M")
 
         time.sleep(1)
