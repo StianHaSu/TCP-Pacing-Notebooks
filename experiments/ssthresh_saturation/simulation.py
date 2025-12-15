@@ -106,12 +106,15 @@ def main():
     pacing_multiplier = sp.run(["sysctl", "net.ipv4.tcp_ss_pacing_multiplier"], capture_output=True, text=True).stdout
     cc_algorithm = sp.run(["sysctl", "net.ipv4.tcp_congestion_control"], capture_output=True, text=True).stdout
 
+    extra_comment = input("Add extra comment to metadata (optional): \n")
+
     with open(f"{directory_prefix}/metadata.txt", "w+") as f:
         f.write(f"Queue sizes: {queue_sizes}\n")
         f.write(f"Time (UTC): {time}\n")
         f.write(f"OS version: {os_version}\n")
         f.write(f"CC Algorithm: {cc_algorithm}")
         f.write(f"Pacing multiplier: {pacing_multiplier}")
+        f.write(f"Commant: ")
 
     run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=1)
 
