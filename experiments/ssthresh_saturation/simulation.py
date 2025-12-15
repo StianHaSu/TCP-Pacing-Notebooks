@@ -23,7 +23,7 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=1000,
             delay=delay,
-            max_queue_size=max_queue_size,
+            max_queue_size=1000,
             use_htb=True
         )
 
