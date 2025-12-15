@@ -10,6 +10,6 @@ def plot_ssthresh_and_queue_size(queues: list[int], sshtresh: list[int]):
     plt.plot(optimal_line_x, optimal_line_y, color='purple')
 
     plt.grid(True)
-    plt.yticks(np.arange(0, 600, step=100))
+    plt.yticks(np.arange(0, 1100, step=125))
     plt.show()
 
