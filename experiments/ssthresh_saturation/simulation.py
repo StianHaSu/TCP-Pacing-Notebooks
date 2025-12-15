@@ -23,7 +23,7 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=1000,
             delay=delay,
-            max_queue_size=int(max_queue_size/2)
+            max_queue_size=max_queue_size
         )
 
         self.addLink(
@@ -31,7 +31,7 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=bw,
             delay=delay,
-            max_queue_size=int(max_queue_size/2),
+            max_queue_size=max_queue_size,
         )
 
 
