@@ -6,6 +6,8 @@ from mininet.log import setLogLevel, info
 import time
 from datetime import datetime
 import os
+import platform
+import subprocess as sp
 
 class SimpleTopology(Topo):
     """
@@ -94,10 +96,24 @@ def main():
     time = datetime.now()
     time = str(time).replace(" ", "_")
 
-    os.mkdir(time)
-    os.mkdir(time+"/ssthresh")
-    os.mkdir(time+"/complete")
-    run_experiments(time, queue_sizes, 5)
+    os_version = platform.release()
+    directory_prefix = os_version + "-" + time
+
+    os.mkdir(directory_prefix)
+    os.mkdir(directory_prefix+"/ssthresh")
+    os.mkdir(directory_prefix+"/complete")
+
+    pacing_multiplier = sp.run(["sysctl", "net.ipv4.tcp_ss_pacing_multiplier"], capture_output=True, text=True).stdout
+    cc_algorithm = sp.run(["sysctl", "net.ipv4.tcp_congestion_control"], capture_output=True, text=True).stdout
+
+    with open(f"{directory_prefix}/metadata.txt", "w+") as f:
+        f.write(f"Queue sizes: {queue_sizes}\n")
+        f.write(f"Time (UTC): {time}\n")
+        f.write(f"OS version: {os_version}\n")
+        f.write(f"CC Algorithm: {cc_algorithm}")
+        f.write(f"Pacing multiplier: {pacing_multiplier}")
+
+    run_experiments(directory_prefix, queue_sizes, 5)
 
 
 if __name__ == "__main__":
