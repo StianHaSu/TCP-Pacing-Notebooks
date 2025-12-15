@@ -70,7 +70,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
         time.sleep(0.5)  
 
         # Pacing add: --fq-rate 100M
-        #h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
+        h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
         h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time} --fq-rate 100M")
 
         time.sleep(1)
@@ -114,9 +114,9 @@ def main():
         f.write(f"OS version: {os_version}\n")
         f.write(f"CC Algorithm: {cc_algorithm}")
         f.write(f"Pacing multiplier: {pacing_multiplier}")
-        f.write(f"Commant: ")
+        f.write(f"Comment: {extra_comment}")
 
-    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=1)
+    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=8)
 
 
 if __name__ == "__main__":
