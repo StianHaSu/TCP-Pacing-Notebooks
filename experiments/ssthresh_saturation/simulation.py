@@ -53,7 +53,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
         h1, h2 = net.get('h1', 'h2')
         net.get('s1')
 
-        h2.cmd("iperf -s &")
+        h2.cmd("iperf -s --tcp-quickack &")
         time.sleep(1)  # Give server time to start
         
         log_file = f"{output_dir}/complete/log-{q}.txt"
@@ -70,7 +70,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
         time.sleep(0.5)  
 
         # Pacing add: --fq-rate 100M
-        #h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
+        h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
         h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time} --fq-rate 100M")
 
         time.sleep(1)
@@ -113,7 +113,7 @@ def main():
         f.write(f"CC Algorithm: {cc_algorithm}")
         f.write(f"Pacing multiplier: {pacing_multiplier}")
 
-    run_experiments(directory_prefix, queue_sizes, 5)
+    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=5)
 
 
 if __name__ == "__main__":
