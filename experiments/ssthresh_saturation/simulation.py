@@ -48,10 +48,8 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
         net = Mininet(topo=topo, link=TCLink, controller=OVSController)
         net.start()
 
-        #attach_aqm_to_switch(net, max_queue_size=q)
         
         h1, h2 = net.get('h1', 'h2')
-        net.get('s1')
 
         h2.cmd("iperf -s --tcp-quickack &")
         time.sleep(1)  # Give server time to start
