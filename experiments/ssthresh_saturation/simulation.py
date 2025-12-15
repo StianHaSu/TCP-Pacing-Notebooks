@@ -114,7 +114,7 @@ def main():
         f.write(f"Pacing multiplier: {pacing_multiplier}")
         f.write(f"Comment: {extra_comment}")
 
-    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=8)
+    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=1)
 
 
 if __name__ == "__main__":
