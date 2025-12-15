@@ -23,7 +23,8 @@ class SimpleTopology(Topo):
             cls=TCLink,
             bw=1000,
             delay=delay,
-            max_queue_size=max_queue_size
+            max_queue_size=max_queue_size,
+            use_htb=True
         )
 
         self.addLink(
@@ -32,6 +33,7 @@ class SimpleTopology(Topo):
             bw=bw,
             delay=delay,
             max_queue_size=max_queue_size,
+            use_htb=True
         )
 
 
@@ -114,7 +116,7 @@ def main():
         f.write(f"Pacing multiplier: {pacing_multiplier}")
         f.write(f"Comment: {extra_comment}")
 
-    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=1)
+    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=8)
 
 
 if __name__ == "__main__":
