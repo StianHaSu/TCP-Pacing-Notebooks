@@ -1,0 +1,260 @@
+12:34:56.674314226 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:34:56.780276623 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:34:56.885923523 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:34:56.994108699 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:34:57.097680932 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:34:57.201178581 State    Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+12:34:57.201178581 SYN-SENT 0      1           10.0.0.1:56324     10.0.0.2:5001
+12:34:57.201178581 	 cubic rto:1000 mss:524 pmtu:1500 rcvmss:88 advmss:1460 cwnd:10 segs_out:1 lastsnd:173693 lastrcv:173693 lastack:173693 app_limited unacked:1 rcv_ssthresh:42340
+
+12:34:57.304401274 State Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+12:34:57.304401274 ESTAB 28     354760      10.0.0.1:56324     10.0.0.2:5001
+12:34:57.304401274 	 cubic wscale:9,9 rto:238 rtt:37.483/6.805 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:38 bytes_sent:94180 bytes_acked:39157 bytes_received:28 segs_out:69 segs_in:17 data_segs_out:66 data_segs_in:1 send 11743777bps lastrcv:36 pacing_rate 23487080bps delivery_rate 6335152bps delivered:29 busy:66ms unacked:38 rcv_space:14480 rcv_ssthresh:42242 notsent:299736 minrtt:30.252 snd_wnd:99840
+
+12:34:57.407679507 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:57.407679507 ESTAB 28     1527640      10.0.0.1:56324     10.0.0.2:5001
+12:34:57.407679507 	 cubic wscale:9,9 rto:235 rtt:34.846/1.986 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:229 bytes_sent:642972 bytes_acked:315725 bytes_received:28 segs_out:448 segs_in:80 data_segs_out:445 data_segs_in:1 send 76127418bps lastrcv:139 pacing_rate 152253736bps delivery_rate 35047576bps delivered:220 busy:169ms unacked:226 rcv_space:14480 rcv_ssthresh:42242 notsent:1200392 minrtt:30.06 snd_wnd:496640
+
+12:34:57.510436869 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:57.510436869 ESTAB 28     2674456      10.0.0.1:56324     10.0.0.2:5001
+12:34:57.510436869 	 cubic wscale:9,9 rto:267 rtt:66.446/11.363 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:342 ssthresh:326 bytes_sent:1421996 bytes_acked:928229 bytes_received:28 segs_out:986 segs_in:120 data_segs_out:983 data_segs_in:1 send 59623273bps lastsnd:2 lastrcv:243 lastack:2 pacing_rate 71547120bps delivery_rate 47788648bps delivered:643 busy:273ms unacked:341 rcv_space:14480 rcv_ssthresh:42242 notsent:2180688 minrtt:30.06 snd_wnd:1385984
+
+12:34:57.617890370 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:57.617890370 ESTAB 28     2035888      10.0.0.1:56324     10.0.0.2:5001
+12:34:57.617890370 	 cubic wscale:9,9 rto:284 rtt:83.408/0.543 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:364 ssthresh:326 bytes_sent:2090972 bytes_acked:1566797 bytes_received:28 segs_out:1448 segs_in:189 data_segs_out:1445 data_segs_in:1 send 50553616bps lastsnd:1 lastrcv:350 lastack:1 pacing_rate 60663792bps delivery_rate 47636584bps delivered:1084 busy:380ms unacked:362 rcv_space:14480 rcv_ssthresh:42242 notsent:1511712 minrtt:30.06 snd_wnd:1697280
+
+12:34:57.720908230 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:57.720908230 ESTAB 28     2525312      10.0.0.1:56324     10.0.0.2:5001
+12:34:57.720908230 	 cubic wscale:9,9 rto:289 rtt:88.418/0.597 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:385 ssthresh:326 bytes_sent:2741124 bytes_acked:2185093 bytes_received:28 segs_out:1897 segs_in:277 data_segs_out:1894 data_segs_in:1 send 50440408bps lastrcv:453 pacing_rate 60527888bps delivery_rate 47641848bps delivered:1511 busy:483ms unacked:384 rcv_space:14480 rcv_ssthresh:42242 notsent:1969280 minrtt:30.06 snd_wnd:1698304
+
+12:34:57.826175410 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:57.826175410 ESTAB 28     3069760      10.0.0.1:56324     10.0.0.2:5001
+12:34:57.826175410 	 cubic wscale:9,9 rto:293 rtt:92.68/0.328 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:407 ssthresh:326 bytes_sent:3399964 bytes_acked:2813525 bytes_received:28 segs_out:2352 segs_in:365 data_segs_out:2349 data_segs_in:1 send 50870609bps lastrcv:558 pacing_rate 61044728bps delivery_rate 47819904bps delivered:1945 busy:588ms unacked:405 rcv_space:14480 rcv_ssthresh:42242 notsent:2483320 minrtt:30.06 snd_wnd:1698304
+
+12:34:57.933386954 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:57.933386954 ESTAB 28     2432640      10.0.0.1:56324     10.0.0.2:5001
+12:34:57.933386954 	 cubic wscale:9,9 rto:298 rtt:97.955/0.17 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:429 ssthresh:326 bytes_sent:4066044 bytes_acked:3450645 bytes_received:28 segs_out:2812 segs_in:454 data_segs_out:2809 data_segs_in:1 send 50732847bps lastsnd:1 lastrcv:665 lastack:1 pacing_rate 60879176bps delivery_rate 47864832bps delivered:2385 busy:695ms unacked:425 rcv_space:14480 rcv_ssthresh:42242 notsent:1817240 minrtt:30.06 snd_wnd:1698304
+
+12:34:58.037064598 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.037064598 ESTAB 28     3048040      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.037064598 	 cubic wscale:9,9 rto:304 rtt:103.208/0.341 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:450 ssthresh:326 bytes_sent:4724884 bytes_acked:4073285 bytes_received:28 segs_out:3267 segs_in:541 data_segs_out:3264 data_segs_in:1 send 50507713bps lastrcv:769 pacing_rate 60608960bps delivery_rate 47603024bps delivered:2815 busy:799ms unacked:450 rcv_space:14480 rcv_ssthresh:42242 notsent:2396440 minrtt:30.06 snd_wnd:1698304
+
+12:34:58.144196797 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.144196797 ESTAB 28     3779280      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.144196797 	 cubic wscale:9,9 rto:309 rtt:108.114/0.603 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:472 ssthresh:326 bytes_sent:5392412 bytes_acked:4710405 bytes_received:28 segs_out:3728 segs_in:630 data_segs_out:3725 data_segs_in:1 send 50572988bps lastsnd:1 lastrcv:876 lastack:1 pacing_rate 60687304bps delivery_rate 47762064bps delivered:3255 busy:906ms unacked:471 rcv_space:14480 rcv_ssthresh:42242 notsent:3097272 minrtt:30.06 snd_wnd:1698304
+
+12:34:58.247312436 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.247312436 ESTAB 28     3162432      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.247312436 	 cubic wscale:9,9 rto:314 rtt:113.098/0.196 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:494 ssthresh:326 bytes_sent:6038220 bytes_acked:5327253 bytes_received:28 segs_out:4174 segs_in:716 data_segs_out:4171 data_segs_in:1 send 50597676bps lastrcv:979 pacing_rate 60717008bps delivery_rate 47672880bps delivered:3681 busy:1009ms unacked:491 rcv_space:14480 rcv_ssthresh:42242 notsent:2451464 minrtt:30.06 snd_wnd:1698304
+
+12:34:58.350646406 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.350646406 ESTAB 28     4041368      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.350646406 	 cubic wscale:9,9 rto:319 rtt:118.025/0.351 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:515 ssthresh:326 bytes_sent:6686924 bytes_acked:5946997 bytes_received:28 segs_out:4622 segs_in:802 data_segs_out:4619 data_segs_in:1 send 50546579bps lastrcv:1083 pacing_rate 60655632bps delivery_rate 47815936bps delivered:4109 busy:1113ms unacked:511 rcv_space:14480 rcv_ssthresh:42242 notsent:3301440 minrtt:30.06 snd_wnd:1698304
+
+12:34:58.455735117 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.455735117 ESTAB 28     3417280      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.455735117 	 cubic wscale:9,9 rto:324 rtt:123.276/0.685 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:537 ssthresh:326 bytes_sent:7347212 bytes_acked:6571085 bytes_received:28 segs_out:5078 segs_in:890 data_segs_out:5075 data_segs_in:1 send 50460820bps lastsnd:1 lastrcv:1188 lastack:1 pacing_rate 60552856bps delivery_rate 47670392bps delivered:4540 busy:1218ms unacked:536 rcv_space:14480 rcv_ssthresh:42242 notsent:2641152 minrtt:30.06 snd_wnd:1698304
+
+12:34:58.560097249 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.560097249 ESTAB 28     4420744      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.560097249 	 cubic wscale:9,9 rto:329 rtt:128.01/0.782 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:558 ssthresh:326 bytes_sent:8004604 bytes_acked:7196621 bytes_received:28 segs_out:5532 segs_in:978 data_segs_out:5529 data_segs_in:1 send 50495055bps lastrcv:1292 pacing_rate 60593768bps delivery_rate 47811208bps delivered:4972 busy:1322ms unacked:558 rcv_space:14480 rcv_ssthresh:42242 notsent:3612760 minrtt:30.06 snd_wnd:1701888
+
+12:34:58.663810634 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.663810634 ESTAB 28     3814032      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.663810634 	 cubic wscale:9,9 rto:335 rtt:134.324/0.625 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:579 ssthresh:326 bytes_sent:8641724 bytes_acked:7803333 bytes_received:28 segs_out:5972 segs_in:1063 data_segs_out:5969 data_segs_in:1 send 49932521bps lastsnd:1 lastrcv:1396 lastack:1 pacing_rate 59919024bps delivery_rate 47392568bps delivered:5391 busy:1426ms unacked:579 rcv_space:14480 rcv_ssthresh:42242 notsent:2975640 minrtt:30.06 snd_wnd:1702912
+
+12:34:58.771674870 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.771674870 ESTAB 28     4923200      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.771674870 	 cubic wscale:9,9 rto:339 rtt:138.016/0.295 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:602 ssthresh:326 bytes_sent:9322284 bytes_acked:8453485 bytes_received:28 segs_out:6442 segs_in:1153 data_segs_out:6439 data_segs_in:1 send 50527243bps lastsnd:1 lastrcv:1504 lastack:1 pacing_rate 60632416bps delivery_rate 47778744bps delivered:5840 busy:1534ms unacked:600 rcv_space:14480 rcv_ssthresh:42242 notsent:4054400 minrtt:30.06 snd_wnd:1773056
+
+12:34:58.877970323 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.877970323 ESTAB 28     4286080      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.877970323 	 cubic wscale:9,9 rto:343 rtt:142.881/0.159 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:624 ssthresh:326 bytes_sent:9988364 bytes_acked:9090605 bytes_received:28 segs_out:6902 segs_in:1242 data_segs_out:6899 data_segs_in:1 send 50590463bps lastrcv:1610 pacing_rate 60708232bps delivery_rate 47811840bps delivered:6280 busy:1640ms unacked:620 rcv_space:14480 rcv_ssthresh:42242 notsent:3388320 minrtt:30.06 snd_wnd:1866752
+
+12:34:58.980860338 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:58.980860338 ESTAB 28     3669232      10.0.0.1:56324     10.0.0.2:5001
+12:34:58.980860338 	 cubic wscale:9,9 rto:348 rtt:147.927/0.207 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:645 ssthresh:326 bytes_sent:10639964 bytes_acked:9707453 bytes_received:28 segs_out:7352 segs_in:1328 data_segs_out:7349 data_segs_in:1 send 50509238bps lastrcv:1713 pacing_rate 60611032bps delivery_rate 47794064bps delivered:6706 busy:1743ms unacked:644 rcv_space:14480 rcv_ssthresh:42242 notsent:2736720 minrtt:30.06 snd_wnd:1985024
+
+12:34:59.084824004 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.084824004 ESTAB 28     4944920      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.084824004 	 cubic wscale:9,9 rto:353 rtt:152.598/0.168 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:666 ssthresh:326 bytes_sent:11284324 bytes_acked:10321405 bytes_received:28 segs_out:7797 segs_in:1413 data_segs_out:7794 data_segs_in:1 send 50557307bps lastrcv:1816 pacing_rate 60668768bps delivery_rate 47793160bps delivered:7130 busy:1846ms unacked:665 rcv_space:14480 rcv_ssthresh:42242 notsent:3982000 minrtt:30.06 snd_wnd:1986048
+
+12:34:59.188871417 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.188871417 ESTAB 28     4336760      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.188871417 	 cubic wscale:9,9 rto:360 rtt:159.567/0.452 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:687 ssthresh:326 bytes_sent:11921444 bytes_acked:10929565 bytes_received:28 segs_out:8237 segs_in:1497 data_segs_out:8234 data_segs_in:1 send 49873771bps lastsnd:1 lastrcv:1921 lastack:1 pacing_rate 59848288bps delivery_rate 47113296bps delivered:7550 busy:1951ms unacked:685 rcv_space:14480 rcv_ssthresh:42242 notsent:3344880 minrtt:30.06 snd_wnd:2039296
+
+12:34:59.294939776 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.294939776 ESTAB 28     5726840      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.294939776 	 cubic wscale:9,9 rto:366 rtt:165.198/0.762 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:709 ssthresh:326 bytes_sent:12580284 bytes_acked:11559445 bytes_received:28 segs_out:8692 segs_in:1584 data_segs_out:8689 data_segs_in:1 send 49716437bps lastsnd:1 lastrcv:2027 lastack:1 pacing_rate 59659632bps delivery_rate 47071568bps delivered:7985 busy:2057ms unacked:705 rcv_space:14480 rcv_ssthresh:42242 notsent:4706000 minrtt:30.06 snd_wnd:2126336
+
+12:34:59.401187133 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.401187133 ESTAB 28     5140400      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.401187133 	 cubic wscale:9,9 rto:368 rtt:167.345/0.553 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:711 ssthresh:510 bytes_sent:13226092 bytes_retrans:7240 bytes_acked:12145885 bytes_received:28 segs_out:9138 segs_in:1671 data_segs_out:9135 data_segs_in:1 send 49217031bps lastsnd:1 lastrcv:2133 lastack:1 pacing_rate 61303048bps delivery_rate 47506728bps delivered:8420 busy:2163ms unacked:741 retrans:5/5 lost:5 sacked:30 rcv_space:14480 rcv_ssthresh:42242 notsent:4067432 minrtt:30.06 snd_wnd:2147840
+
+12:34:59.506176666 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.506176666 ESTAB 28     5140400      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.506176666 	 cubic wscale:9,9 rto:369 rtt:168.247/0.035 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:561 ssthresh:510 bytes_sent:13667732 bytes_retrans:36200 bytes_acked:12145885 bytes_received:28 segs_out:9443 segs_in:1758 data_segs_out:9440 data_segs_in:1 send 38625497bps lastrcv:2238 pacing_rate 84438736bps delivery_rate 47484712bps delivered:8855 busy:2268ms unacked:1026 retrans:25/25 lost:25 sacked:465 rcv_space:14480 rcv_ssthresh:42242 notsent:3654752 minrtt:30.06 snd_wnd:2147840
+
+12:34:59.611053782 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.611053782 ESTAB 28     4678488      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.611053782 	 cubic wscale:9,9 rto:349 rtt:148.853/3.121 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:510 ssthresh:510 bytes_sent:14244036 bytes_retrans:56472 bytes_acked:12607797 bytes_received:28 segs_out:9841 segs_in:1840 data_segs_out:9838 data_segs_in:1 send 39689089bps lastsnd:1 lastrcv:2343 lastack:1 pacing_rate 101510080bps delivery_rate 40987384bps delivered:9290 busy:2373ms unacked:1091 retrans:20/39 lost:20 sacked:581 rcv_space:14480 rcv_ssthresh:42242 notsent:3098720 minrtt:30.06 snd_wnd:1687552
+
+12:34:59.715439942 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.715439942 ESTAB 28     6052640      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.715439942 	 cubic wscale:9,9 rto:322 rtt:121.792/0.268 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:442 ssthresh:357 bytes_sent:14772556 bytes_retrans:65160 bytes_acked:13383925 bytes_received:28 segs_out:10206 segs_in:1915 data_segs_out:10203 data_segs_in:1 send 42039937bps lastsnd:1 lastrcv:2447 lastack:1 pacing_rate 103748592bps delivery_rate 38226496bps delivered:9717 busy:2477ms unacked:914 retrans:8/45 lost:8 sacked:472 rcv_space:14480 rcv_ssthresh:42242 notsent:4729168 minrtt:30.06 snd_wnd:2007552
+
+12:34:59.819188024 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.819188024 ESTAB 28     4742200      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.819188024 	 cubic wscale:9,9 rto:312 rtt:111.469/2.067 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:358 ssthresh:357 bytes_sent:15275012 bytes_retrans:65160 bytes_acked:14694365 bytes_received:28 segs_out:10553 segs_in:2001 data_segs_out:10550 data_segs_in:1 send 37203815bps lastrcv:2551 pacing_rate 44644272bps delivery_rate 42375280bps delivered:10150 busy:2581ms unacked:356 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4226712 minrtt:30.06 snd_wnd:2658816
+
+12:34:59.925520173 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:34:59.925520173 ESTAB 28     4105080      10.0.0.1:56324     10.0.0.2:5001
+12:34:59.925520173 	 cubic wscale:9,9 rto:287 rtt:86.422/0.23 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:361 ssthresh:357 bytes_sent:15917924 bytes_retrans:65160 bytes_acked:15331485 bytes_received:28 segs_out:10997 segs_in:2134 data_segs_out:10994 data_segs_in:1 send 48388420bps lastrcv:2658 pacing_rate 58065512bps delivery_rate 41637840bps delivered:10590 busy:2688ms unacked:360 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3583800 minrtt:30.06 snd_wnd:3933184
+
+12:35:00.029720415 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.029720415 ESTAB 28     5634168      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.029720415 	 cubic wscale:9,9 rto:288 rtt:87.401/0.159 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:365 ssthresh:357 bytes_sent:16543460 bytes_retrans:65160 bytes_acked:15952677 bytes_received:28 segs_out:11429 segs_in:2245 data_segs_out:11426 data_segs_in:1 send 48376563bps lastrcv:2762 pacing_rate 58051288bps delivery_rate 47786264bps delivered:11019 busy:2792ms unacked:363 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5108544 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.134231104 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.134231104 ESTAB 28     5011528      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.134231104 	 cubic wscale:9,9 rto:289 rtt:88.24/0.129 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:368 ssthresh:357 bytes_sent:17173340 bytes_retrans:65160 bytes_acked:16575317 bytes_received:28 segs_out:11864 segs_in:2356 data_segs_out:11861 data_segs_in:1 send 48310426bps lastrcv:2866 pacing_rate 57972176bps delivery_rate 47853136bps delivered:11449 busy:2896ms unacked:368 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4478664 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.238130548 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.238130548 ESTAB 28     4388888      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.238130548 	 cubic wscale:9,9 rto:290 rtt:89.02/0.224 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:372 ssthresh:357 bytes_sent:17797428 bytes_retrans:65160 bytes_acked:17197957 bytes_received:28 segs_out:12295 segs_in:2465 data_segs_out:12292 data_segs_in:1 send 48407639bps lastrcv:2970 pacing_rate 58088592bps delivery_rate 47821048bps delivered:11879 busy:3000ms unacked:369 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3854576 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.341944575 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.341944575 ESTAB 28     5919424      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.341944575 	 cubic wscale:9,9 rto:290 rtt:89.887/0.171 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:375 ssthresh:357 bytes_sent:18425860 bytes_retrans:65160 bytes_acked:17817701 bytes_received:28 segs_out:12729 segs_in:2574 data_segs_out:12726 data_segs_in:1 send 48327344bps lastsnd:1 lastrcv:3074 lastack:1 pacing_rate 57992248bps delivery_rate 47892240bps delivered:12307 busy:3104ms unacked:375 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5376424 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.445844185 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.445844185 ESTAB 28     5301128      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.445844185 	 cubic wscale:9,9 rto:291 rtt:90.629/0.071 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:379 ssthresh:357 bytes_sent:19049948 bytes_retrans:65160 bytes_acked:18435997 bytes_received:28 segs_out:13160 segs_in:2683 data_segs_out:13157 data_segs_in:1 send 48442949bps lastsnd:1 lastrcv:3178 lastack:1 pacing_rate 58131456bps delivery_rate 47768016bps delivered:12734 busy:3208ms unacked:379 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4752336 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.548988966 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.548988966 ESTAB 28     4682832      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.548988966 	 cubic wscale:9,9 rto:292 rtt:91.568/0.241 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:382 ssthresh:357 bytes_sent:19672588 bytes_retrans:65160 bytes_acked:19054293 bytes_received:28 segs_out:13590 segs_in:2791 data_segs_out:13587 data_segs_in:1 send 48325703bps lastsnd:1 lastrcv:3281 lastack:1 pacing_rate 57990288bps delivery_rate 47892832bps delivered:13161 busy:3311ms unacked:382 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4129696 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.655737225 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.655737225 ESTAB 28     6198888      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.655737225 	 cubic wscale:9,9 rto:294 rtt:93.342/0.027 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:385 ssthresh:357 bytes_sent:20311156 bytes_retrans:65160 bytes_acked:19688517 bytes_received:28 segs_out:14031 segs_in:2902 data_segs_out:14028 data_segs_in:1 send 47779563bps lastsnd:1 lastrcv:3388 lastack:1 pacing_rate 57335168bps delivery_rate 47411824bps delivered:13599 busy:3418ms unacked:385 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5641408 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.761185034 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.761185034 ESTAB 28     5571904      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.761185034 	 cubic wscale:9,9 rto:294 rtt:93.72/0.041 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:388 ssthresh:357 bytes_sent:20942484 bytes_retrans:65160 bytes_acked:20315501 bytes_received:28 segs_out:14467 segs_in:3012 data_segs_out:14464 data_segs_in:1 send 47957661bps lastrcv:3493 pacing_rate 57548880bps delivery_rate 47642768bps delivered:14032 busy:3523ms unacked:388 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5010080 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.868617747 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.868617747 ESTAB 28     4928992      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.868617747 	 cubic wscale:9,9 rto:294 rtt:93.886/0.13 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:392 ssthresh:357 bytes_sent:21589740 bytes_retrans:65160 bytes_acked:20958413 bytes_received:28 segs_out:14914 segs_in:3124 data_segs_out:14911 data_segs_in:1 send 48366402bps lastsnd:1 lastrcv:3601 lastack:1 pacing_rate 58039368bps delivery_rate 47859608bps delivered:14476 busy:3631ms unacked:391 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4362824 minrtt:30.06 snd_wnd:4652032
+
+12:35:00.973619100 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:00.973619100 ESTAB 28     4302008      10.0.0.1:56324     10.0.0.2:5001
+12:35:00.973619100 	 cubic wscale:9,9 rto:295 rtt:94.795/0.129 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:394 ssthresh:357 bytes_sent:22218172 bytes_retrans:65160 bytes_acked:21585397 bytes_received:28 segs_out:15348 segs_in:3234 data_segs_out:15345 data_segs_in:1 send 48147012bps lastsnd:1 lastrcv:3706 lastack:1 pacing_rate 57776032bps delivery_rate 47839024bps delivered:14909 busy:3736ms unacked:392 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3734392 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.081110721 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.081110721 ESTAB 28     5807928      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.081110721 	 cubic wscale:9,9 rto:296 rtt:95.306/0.14 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:397 ssthresh:357 bytes_sent:22865428 bytes_retrans:65160 bytes_acked:22229757 bytes_received:28 segs_out:15795 segs_in:3348 data_segs_out:15792 data_segs_in:1 send 48253499bps lastrcv:3813 pacing_rate 57903816bps delivery_rate 47804088bps delivered:15354 busy:3843ms unacked:394 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5237416 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.185373483 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.185373483 ESTAB 28     5186736      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.185373483 	 cubic wscale:9,9 rto:296 rtt:95.945/0.315 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:399 ssthresh:357 bytes_sent:23493860 bytes_retrans:65160 bytes_acked:22850949 bytes_received:28 segs_out:16229 segs_in:3458 data_segs_out:16226 data_segs_in:1 send 48173599bps lastsnd:1 lastrcv:3918 lastack:1 pacing_rate 57808240bps delivery_rate 47821968bps delivered:15783 busy:3948ms unacked:399 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4608984 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.289068666 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.289068666 ESTAB 28     4568440      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.289068666 	 cubic wscale:9,9 rto:297 rtt:96.624/0.046 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:401 ssthresh:357 bytes_sent:24115052 bytes_retrans:65160 bytes_acked:23469245 bytes_received:28 segs_out:16658 segs_in:3567 data_segs_out:16655 data_segs_in:1 send 48074847bps lastrcv:4021 pacing_rate 57689816bps delivery_rate 47847944bps delivered:16210 busy:4051ms unacked:401 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3987792 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.392730307 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.392730307 ESTAB 28     6097528      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.392730307 	 cubic wscale:9,9 rto:298 rtt:97.127/0.171 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:404 ssthresh:357 bytes_sent:24739140 bytes_retrans:65160 bytes_acked:24090437 bytes_received:28 segs_out:17089 segs_in:3675 data_segs_out:17086 data_segs_in:1 send 48183677bps lastrcv:4125 pacing_rate 57819960bps delivery_rate 47690848bps delivered:16639 busy:4155ms unacked:403 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5513984 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.496328574 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.496328574 ESTAB 28     5479232      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.496328574 	 cubic wscale:9,9 rto:298 rtt:97.548/0.046 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:406 ssthresh:357 bytes_sent:25360332 bytes_retrans:65160 bytes_acked:24708733 bytes_received:28 segs_out:17518 segs_in:3782 data_segs_out:17515 data_segs_in:1 send 48213228bps lastrcv:4228 pacing_rate 57855872bps delivery_rate 47850592bps delivered:17066 busy:4258ms unacked:405 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4892792 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.601355040 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.601355040 ESTAB 28     4852248      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.601355040 	 cubic wscale:9,9 rto:299 rtt:98.279/0.232 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:408 ssthresh:357 bytes_sent:25990212 bytes_retrans:65160 bytes_acked:25335717 bytes_received:28 segs_out:17953 segs_in:3892 data_segs_out:17950 data_segs_in:1 send 48090355bps lastrcv:4333 pacing_rate 57708424bps delivery_rate 47827264bps delivered:17499 busy:4363ms unacked:407 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4262912 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.706187924 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.706187924 ESTAB 28     4228160      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.706187924 	 cubic wscale:9,9 rto:300 rtt:99.063/0.341 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:410 ssthresh:357 bytes_sent:26615748 bytes_retrans:65160 bytes_acked:25959805 bytes_received:28 segs_out:18385 segs_in:4000 data_segs_out:18382 data_segs_in:1 send 47943632bps lastsnd:1 lastrcv:4439 lastack:1 pacing_rate 57532280bps delivery_rate 47613832bps delivered:17930 busy:4469ms unacked:408 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3637376 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.809967440 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.809967440 ESTAB 28     5758696      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.809967440 	 cubic wscale:9,9 rto:299 rtt:98.771/0.058 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:412 ssthresh:357 bytes_sent:27241284 bytes_retrans:65160 bytes_acked:26579549 bytes_received:28 segs_out:18817 segs_in:4108 data_segs_out:18814 data_segs_in:1 send 48319932bps lastrcv:4542 pacing_rate 57983912bps delivery_rate 47691944bps delivered:18358 busy:4572ms unacked:412 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5162120 minrtt:30.06 snd_wnd:4652032
+
+12:35:01.912985710 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:01.912985710 ESTAB 28     5144744      10.0.0.1:56324     10.0.0.2:5001
+12:35:01.912985710 	 cubic wscale:9,9 rto:300 rtt:99.75/0.088 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:414 ssthresh:357 bytes_sent:27855236 bytes_retrans:65160 bytes_acked:27193501 bytes_received:28 segs_out:19241 segs_in:4216 data_segs_out:19238 data_segs_in:1 send 48077955bps lastrcv:4645 pacing_rate 57693472bps delivery_rate 47753296bps delivered:18782 busy:4675ms unacked:412 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4548168 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.016145019 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.016145019 ESTAB 28     4530792      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.016145019 	 cubic wscale:9,9 rto:300 rtt:99.937/0.06 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:415 ssthresh:357 bytes_sent:28473532 bytes_retrans:65160 bytes_acked:27807453 bytes_received:28 segs_out:19668 segs_in:4323 data_segs_out:19665 data_segs_in:1 send 48103905bps lastrcv:4748 pacing_rate 57724248bps delivery_rate 47698888bps delivered:19206 busy:4778ms unacked:415 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3929872 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.123865040 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.123865040 ESTAB 28     6033816      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.123865040 	 cubic wscale:9,9 rto:301 rtt:100.449/0.115 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:417 ssthresh:357 bytes_sent:29123684 bytes_retrans:65160 bytes_acked:28454709 bytes_received:28 segs_out:20117 segs_in:4437 data_segs_out:20114 data_segs_in:1 send 48089359bps lastrcv:4856 pacing_rate 57707224bps delivery_rate 47732312bps delivered:19653 busy:4886ms unacked:417 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:5430000 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.229869654 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.229869654 ESTAB 28     5401040      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.229869654 	 cubic wscale:9,9 rto:302 rtt:101.149/0.236 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:419 ssthresh:357 bytes_sent:29757908 bytes_retrans:65160 bytes_acked:29087485 bytes_received:28 segs_out:20555 segs_in:4547 data_segs_out:20552 data_segs_in:1 send 47985605bps lastrcv:4962 pacing_rate 57582648bps delivery_rate 47641632bps delivered:20090 busy:4992ms unacked:418 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4795776 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.335234815 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.335234815 ESTAB 28     4772608      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.335234815 	 cubic wscale:9,9 rto:302 rtt:101.1/0.19 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:420 ssthresh:357 bytes_sent:30389236 bytes_retrans:65160 bytes_acked:29715917 bytes_received:28 segs_out:20991 segs_in:4657 data_segs_out:20988 data_segs_in:1 send 48123442bps lastrcv:5067 pacing_rate 57748128bps delivery_rate 47834192bps delivered:20524 busy:5097ms unacked:420 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:4164448 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.439051527 State Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.439051527 ESTAB 28     4152864      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.439051527 	 cubic wscale:9,9 rto:302 rtt:101.755/0.147 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:421 ssthresh:357 bytes_sent:31010428 bytes_retrans:65160 bytes_acked:30335661 bytes_received:28 segs_out:21420 segs_in:4765 data_segs_out:21417 data_segs_in:1 send 47927512bps lastsnd:1 lastrcv:5171 lastack:1 pacing_rate 57512584bps delivery_rate 47819304bps delivered:20952 busy:5201ms unacked:421 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3543256 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.542970405 State      Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.542970405 FIN-WAIT-1 0      3646217      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.542970405 	 cubic wscale:9,9 rto:302 rtt:101.822/0.094 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:422 ssthresh:357 bytes_sent:31633068 bytes_retrans:65160 bytes_acked:30956853 bytes_received:28 segs_out:21850 segs_in:4873 data_segs_out:21847 data_segs_in:1 send 48009742bps lastrcv:5275 pacing_rate 57611472bps delivery_rate 47710416bps delivered:21381 busy:5305ms unacked:422 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:3035161 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.651203339 State      Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.651203339 FIN-WAIT-1 0      3000409      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.651203339 	 cubic wscale:9,9 rto:303 rtt:102.124/0.087 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:423 ssthresh:357 bytes_sent:32280324 bytes_retrans:65160 bytes_acked:31602661 bytes_received:28 segs_out:22297 segs_in:4986 data_segs_out:22294 data_segs_in:1 send 47981199bps lastsnd:1 lastrcv:5383 lastack:1 pacing_rate 57577296bps delivery_rate 47857456bps delivered:21827 busy:5413ms unacked:423 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:2387905 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.759802145 State      Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.759802145 FIN-WAIT-1 0      2347361      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.759802145 	 cubic wscale:9,9 rto:303 rtt:102.374/0.095 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:424 ssthresh:357 bytes_sent:32934820 bytes_retrans:65160 bytes_acked:32255709 bytes_received:28 segs_out:22749 segs_in:5100 data_segs_out:22746 data_segs_in:1 send 47977182bps lastrcv:5492 pacing_rate 57572472bps delivery_rate 47865896bps delivered:22278 busy:5522ms unacked:424 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:1733409 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.867467208 State      Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.867467208 FIN-WAIT-1 0      1704449      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.867467208 	 cubic wscale:9,9 rto:303 rtt:102.843/0.074 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:425 ssthresh:357 bytes_sent:33576284 bytes_retrans:65160 bytes_acked:32898621 bytes_received:28 segs_out:23192 segs_in:5212 data_segs_out:23189 data_segs_in:1 send 47871027bps lastsnd:1 lastrcv:5600 lastack:1 pacing_rate 57444880bps delivery_rate 47699016bps delivered:22722 busy:5630ms unacked:423 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:1091945 minrtt:30.06 snd_wnd:4652032
+
+12:35:02.973164949 State      Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess
+12:35:02.973164949 FIN-WAIT-1 0      1074569      10.0.0.1:56324     10.0.0.2:5001
+12:35:02.973164949 	 cubic wscale:9,9 rto:303 rtt:102.501/0.075 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:426 ssthresh:357 bytes_sent:34210508 bytes_retrans:65160 bytes_acked:33528501 bytes_received:28 segs_out:23630 segs_in:5322 data_segs_out:23627 data_segs_in:1 send 48143764bps lastrcv:5705 pacing_rate 57772024bps delivery_rate 47594840bps delivered:23157 busy:5735ms unacked:426 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 notsent:457721 minrtt:30.06 snd_wnd:4652032
+
+12:35:03.079960967 State      Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+12:35:03.079960967 FIN-WAIT-1 0      434553      10.0.0.1:56324     10.0.0.2:5001
+12:35:03.079960967 	 cubic wscale:9,9 rto:304 rtt:103.171/0.009 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:427 ssthresh:357 bytes_sent:34668228 bytes_retrans:65160 bytes_acked:34168517 bytes_received:28 segs_out:23947 segs_in:5435 data_segs_out:23944 data_segs_in:1 send 47943395bps lastsnd:30 lastrcv:5812 pacing_rate 57531584bps delivery_rate 47868232bps delivered:23599 busy:5842ms unacked:301 retrans:0/45 rcv_space:14480 rcv_ssthresh:42242 minrtt:30.06 snd_wnd:4652032
+
+12:35:03.184092124 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:03.289346482 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:03.393129307 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:03.501083689 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:03.607085626 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:03.711931694 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:03.818184338 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:03.922842908 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:04.030762662 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:04.135928384 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+12:35:04.240173820 State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
