@@ -13,7 +13,7 @@ class SimpleTopology(Topo):
     """
     h1 --- s1 --- h2
     """
-    def build(self, max_queue_size, bw, delay="7.5ms"):
+    def build(self, max_queue_size, bw, delay="15ms"):
         h1 = self.addHost('h1')
         h2 = self.addHost('h2')
         s1 = self.addSwitch("s1")
@@ -22,8 +22,8 @@ class SimpleTopology(Topo):
             h1, s1,
             cls=TCLink,
             bw=1000,
-            delay=delay,
-            max_queue_size=1000,
+            delay="0ms",
+            max_queue_size=15,
             use_htb=True
         )
 
