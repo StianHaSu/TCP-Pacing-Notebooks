@@ -49,6 +49,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
         topo = SimpleTopology(max_queue_size=q, bw=iperf_bandwidth)
         net = Mininet(topo=topo, link=TCLink, controller=OVSController)
         net.start()
+
         
         h1, h2 = net.get('h1', 'h2')
 
