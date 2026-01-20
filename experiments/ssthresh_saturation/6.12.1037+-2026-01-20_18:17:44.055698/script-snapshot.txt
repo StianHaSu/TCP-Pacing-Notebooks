@@ -65,7 +65,6 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
             'while true; do '
             'ts=$(date +%H:%M:%S.%N); '
             'ss -tin | sed "s/^/$ts /"; '
-            'sleep 0.1;'
             'echo ""; '
             f'done > {log_file} 2>&1 &'
         )
@@ -124,7 +123,7 @@ def main():
     with open(f"{directory_prefix}/script-snapshot.txt", "w+") as f:
         f.write(sp.run(["cat", "simulation.py"], capture_output=True, text=True).stdout)
 
-    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=1)
+    run_experiments(directory_prefix, queue_sizes, 15, pacing_multiplier=1)
 
 
 if __name__ == "__main__":
