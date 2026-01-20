@@ -95,7 +95,8 @@ def main():
     setLogLevel('info')
 
     # Define the queue sizes (in packets) you want to test
-    queue_sizes = [x for x in range(5, 255, 5)]
+    #queue_sizes = [x for x in range(5, 255, 5)]
+    queue_sizes = [200]
 
     time = datetime.now()
     time = str(time).replace(" ", "_")
