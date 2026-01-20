@@ -14,14 +14,14 @@ def _rtt_to_bdp_plus_queue(rtts, queues, bandwidth):
     return result
 
 
-def plot_ssthresh_and_queue_size(queues: list[int], sshtresh: list[int], rtts: list[int]):
+def plot_ssthresh_and_queue_size(queues: list[int], sshtresh: list[int], rtts: list[int], cwnds):
     plt.plot(queues, sshtresh, marker='+', color='black', label="Measured")
 
-    bdp_and_queue = _rtt_to_bdp_plus_queue(rtts, queues, 50 * (10**6))
-    plt.plot(queues, bdp_and_queue, marker='x', color='red', label='BDP + queue size')
+    #bdp_and_queue = _rtt_to_bdp_plus_queue(rtts, queues, 50 * (10**6))
+    #plt.plot(queues, bdp_and_queue, marker='x', color='red', label='BDP + queue size')
 
-    optimal_line_x = [x for x in range(251)]
-    optimal_line_y = [ 125 + (x*2) for x in range(251) ]
+    optimal_line_x = [x for x in range(5, 255, 5)]
+    optimal_line_y = [ 129 + x for x in optimal_line_x ]
 
     plt.plot(optimal_line_x, optimal_line_y, color='purple')
 
@@ -32,6 +32,6 @@ def plot_ssthresh_and_queue_size(queues: list[int], sshtresh: list[int], rtts: l
     plt.grid(True)
 
     plt.xticks(np.arange(0, 251, step=25))
-    plt.yticks(np.arange(0, max((sshtresh + bdp_and_queue)) + 500, step=500))
+    plt.yticks(np.arange(0, max(optimal_line_y) + 50, step=25))
     plt.show()
 

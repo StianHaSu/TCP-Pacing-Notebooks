@@ -2,7 +2,7 @@
 def get_sshthresh_from_file(file_name: str):
     first_loss = (0, None, None)
     second_loss = (0, None, None)
-    third_loss = (0, None, None)
+    max_cwnd = -1
 
     with open(file_name, 'r+') as f:
 
@@ -17,14 +17,12 @@ def get_sshthresh_from_file(file_name: str):
             if ssthresh.split(":")[0] == "ssthresh":
                 if first_loss[1] is None:
                     first_loss = (ssthresh.split(":")[1], rtt, time)
+                    max_cwnd = int(bits[11].split(":")[1])
                 elif second_loss[1] is None and ssthresh.split(":")[1] != first_loss[0]:
                     second_loss = (ssthresh.split(":")[1], rtt, time)
                     break
-                elif second_loss[1] is not None and ssthresh.split(":")[1] != second_loss[0]:
-                    third_loss = (ssthresh.split(":")[1], rtt, time)
-                    break
 
-    return first_loss, second_loss, third_loss
+    return first_loss, second_loss, max_cwnd
 
 
 def get_last_sshthresh_from_file(file_name: str):
@@ -62,11 +60,13 @@ def get_last_queue_ssthresh_rtt(experiment_time: str):
 def get_queue_ssthresh_rtt(experiment_time: str):
     queues = [x for x in range(5, 255, 5)]
     ssthresh = []
+    cwnds = []
     rtts = []
 
     for queue in queues:
         losses = get_sshthresh_from_file(f"{experiment_time}/ssthresh/ssthresh-queue-{queue}.txt")
         ssthresh.append(int(losses[0][0]))
         rtts.append(int(losses[0][1]))
+        cwnds.append(losses[2])
 
-    return queues, ssthresh, rtts
+    return queues, ssthresh, rtts, cwnds
