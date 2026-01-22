@@ -83,7 +83,7 @@ def run_experiments(output_dir, queue_sizes, iperf_time=10, iperf_bandwidth=50, 
 
         # Pacing add: --fq-rate 100M
         h1.cmd(f"sysctl -w net.ipv4.tcp_ss_pacing_multiplier={pacing_multiplier}")
-        h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time}") #-fq-rate 100M")
+        h1.cmd(f"iperf -c {h2.IP()} -t {iperf_time} --fq-rate 100M")
 
         time.sleep(1)
 
@@ -132,7 +132,7 @@ def main():
     with open(f"{directory_prefix}/script-snapshot.txt", "w+") as f:
         f.write(sp.run(["cat", "simulation.py"], capture_output=True, text=True).stdout)
 
-    run_experiments(directory_prefix, queue_sizes, 15, pacing_multiplier=8)
+    run_experiments(directory_prefix, queue_sizes, 5, pacing_multiplier=8)
 
 
 if __name__ == "__main__":
