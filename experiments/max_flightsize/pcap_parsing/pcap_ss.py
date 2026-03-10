@@ -3,6 +3,7 @@ import sys
 from dataclasses import dataclass
 from typing import Optional, TextIO
 
+from bokeh.io import output_file
 
 MSS = 1448
 INITIAL_CWND = 10.0 * 1448
@@ -62,6 +63,7 @@ class FlowConfig:
     src: str
     dst: str
     mss: float
+    output_file: str
 
 
 @dataclass
@@ -208,36 +210,11 @@ def handle_send_event(cfg: FlowConfig, info: LossInfo, st: CCState, line: list[s
         st.cwnd_at_link_full = st.cwnd
         with open("bytes.txt", "a+") as f:
             f.write(f"{st.total_sent_bytes}\n")
-    
-    if st.in_fligh > st.max_in_flight:
-        st.max_in_flight = st.in_fligh
-        st.cwnd_at_max_in_flight = st.cwnd
-        st.total_sent_bytes_at_max_flight = st.total_sent_bytes
-        st.acked_bytes_since_full_at_max = st.bytes_acked_since_full
-
-    print(
-        (time - info.first_time),
-        "snd",
-        sent,
-        "cwnd",
-        st.cwnd,
-        "sndwnd",
-        st.sndwnd,
-        "snd_timegap",
-        gap,
-        end="",
-    )
-
-    if (seq_lo <= info.loss_seqno < seq_hi) and not st.loss_marked:
-        print(" firstloss seqno_range", f"{int(seq_lo)}:{int(seq_hi)}")
-        st.loss_marked = True
-    else:
-        print()
 
     return False
 
 
-def handle_ack_event(cfg: FlowConfig, info: LossInfo, st: CCState, line: list[str]) -> None:
+def handle_ack_event(st: CCState, line: list[str], output_file: str) -> bool:
     """Handle a dst 'ack' line."""
     time = float(line[0])
 
@@ -256,41 +233,18 @@ def handle_ack_event(cfg: FlowConfig, info: LossInfo, st: CCState, line: list[st
         st.bytes_acked_since_full += acked
     
     if acked > 0:
+        # Reset dupAck counter
         st.dupacks = 0
     else:
         st.dupacks += 1
         if st.dupacks > 2:
-            print(f"{(time - info.first_time)} ssthresh {st.cwnd / 2.0} cwnd: {st.cwnd} sndwnd: {st.sndwnd}")
-            print(f"{(time - info.first_time) / MSS} ssthresh {int((st.cwnd / 2.0) / MSS)} cwnd: {int(st.cwnd / MSS)} sndwnd: {st.sndwnd / MSS}")
-            with open ("exp_20260309-221153_inflight-default-tso-on-combined-32.txt", "a+") as f:
+            with open (output_file, "a+") as f:
                 max_p_in_flight = int(st.max_in_flight / MSS)
-                cwnd_p_max_flight = int(st.cwnd_at_max_in_flight / MSS)
-                packets_sent_since_link_full = int((st.total_sent_bytes_at_max_flight - st.total_sent_bytes_at_full - st.acked_bytes_since_full_at_max) / MSS)
-                total_sent_since_full = int((st.total_sent_bytes_at_max_flight - st.total_sent_bytes_at_full) / MSS)
-                acks_since_full = int(st.acked_bytes_since_full_at_max / MSS)
-                
-                #f.write(f"{max_p_in_flight}, {cwnd_p_max_flight}, {packets_sent_since_link_full}, {st.acked_bytes_since_full_at_max / MSS}, {st.cwnd_at_link_full / MSS}, {total_sent_since_full}, {acks_since_full}\n")
                 f.write(f"{max_p_in_flight}\n")
                 
             return True
 
-    print(
-        (time - info.first_time),
-        "ack",
-        acked,
-        "cwnd",
-        st.cwnd,
-        "sndwnd",
-        st.sndwnd,
-        "ack_timegap",
-        gap,
-        end="",
-    )
-
-    if ackno == info.loss_seqno:
-        print(" firstloss_dupack", "ackno", int(ackno))
-    else:
-        print()
+    return False
 
 
 def process_trace(file: TextIO, cfg: FlowConfig, info: LossInfo, initial_cwnd: float) -> None:
@@ -309,7 +263,7 @@ def process_trace(file: TextIO, cfg: FlowConfig, info: LossInfo, initial_cwnd: f
   
 
         elif same_address("10.100.21.1.6000", line[2]) and line[7] == "ack":
-            should_stop = handle_ack_event(cfg, info, st, line)
+            should_stop = handle_ack_event(st, line, cfg.output_file)
             if should_stop:
                 break
             
@@ -335,10 +289,11 @@ def parse_args(argv: list[str]) -> FlowConfig:
     src = f"{argv[2]}.{argv[3]}"
     dst = f"{argv[4]}.{argv[5]}"
     mss = float(argv[6])
-    return FlowConfig(filename=filename, src=src, dst=dst, mss=mss)
+    output_file = argv[7]
+    return FlowConfig(filename=filename, src=src, dst=dst, mss=mss, output_file=output_file)
 
 
-def main(argv: list[str]) -> int:
+def pcap_get_max_flight_size_slow_start(argv: list[str]) -> int:
     cfg = parse_args(argv)
 
     try:
@@ -350,7 +305,3 @@ def main(argv: list[str]) -> int:
     except IOError:
         print("couldn't read the input file.")
         return 2
-
-
-if __name__ == "__main__":
-    raise SystemExit(main(sys.argv))
