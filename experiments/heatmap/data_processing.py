@@ -1,5 +1,6 @@
 import pandas as pd
 from pandas import DataFrame
+from pandas.core.indexes.base import str_t
 
 
 def transform_to_matrix(filename: str, bandwidths: list[int], queues: list[int]) -> DataFrame:
@@ -20,6 +21,40 @@ def transform_to_matrix(filename: str, bandwidths: list[int], queues: list[int])
                 line_counter = 0
 
 
+
+    return pd.DataFrame(matrix, index=bandwidths, columns=queues)
+
+def transform_to_matrix_mean(means: list[int], bandwidths: list[int], queues: list[int]) -> DataFrame:
+    matrix = []
+    for _ in bandwidths:
+        matrix.append([])
+
+    bandwidth_counter = 0
+    line_counter = 0
+    for mean in means:
+        matrix[bandwidth_counter].append(mean)
+        line_counter += 1
+
+        if line_counter >= len(queues):
+            bandwidth_counter += 1
+            line_counter = 0
+
+    return pd.DataFrame(matrix, index=bandwidths, columns=queues)
+
+def transform_to_matrix_stddev(stddevs: list[int], bandwidths: list[int], queues: list[int]) -> DataFrame:
+    matrix = []
+    for _ in bandwidths:
+        matrix.append([])
+
+    bandwidth_counter = 0
+    line_counter = 0
+    for stddev in stddevs:
+        matrix[bandwidth_counter].append(stddev)
+        line_counter += 1
+
+        if line_counter >= len(queues):
+            bandwidth_counter += 1
+            line_counter = 0
 
     return pd.DataFrame(matrix, index=bandwidths, columns=queues)
 
@@ -46,6 +81,34 @@ def get_as_percentage_matrix(max_flight_matrix: DataFrame, bandwidths: list[int]
     return (max_flight_matrix / bdp_queue) * 100
 
 
+def aggregate_data(filename: str, runs: int):
+    counter = 0
+    row = 0
+
+    matrix = []
+    with open(filename, "r+") as f:
+        for line in f:
+            if counter == 0:
+                matrix.append([])
+
+            matrix[row].append(int(line))
+            counter += 1
+
+            if counter == runs:
+                counter = 0
+                row += 1
+
+    all_runs = pd.DataFrame(matrix, index=range(row), columns=range(runs))
+
+    return all_runs
+
+def get_statistics(aggregated_data: DataFrame):
+    return pd.DataFrame({
+        "mean": aggregated_data.mean(axis=1),
+        "std": aggregated_data.std(axis=1),
+        "min": aggregated_data.min(axis=1),
+        "max": aggregated_data.max(axis=1)
+    })
 
 
 

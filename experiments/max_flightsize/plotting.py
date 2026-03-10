@@ -54,7 +54,7 @@ def plot_ssthresh_and_queue_size(queues: list[int], bdp_packets: int, sshtresh: 
         name = "_".join(title.split())
         fig.savefig(name + ".pdf", bbox_inches="tight", pad_inches=0.05)
 
-def plot_ssthresh_w_backoff(queues: list[int], bdp_packets: int, sshtresh: list[int], second_ssthresh: list[int] = None, title: str = None, color: str = "green", save: bool = False, backoff: float = 0.5):
+def plot_ssthresh_w_backoff(queues: list[int], bdp_packets: int, sshtresh: list[int], second_ssthresh: list[int] = None, title: str = None, color: str = "green", save: bool = False, backoff: float = 0.5, show_double_backoff: bool = False):
     fig = plt.figure(figsize=(10, 6))
 
     plt.scatter(queues, sshtresh, marker='o', color=color, label="First ssthresh after slowstart")
@@ -68,9 +68,14 @@ def plot_ssthresh_w_backoff(queues: list[int], bdp_packets: int, sshtresh: list[
     optimal_line_x = [queue for queue in queues]
     optimal_line_y = [ bdp_packets + x for x in optimal_line_x ]
     expected_after_backoff = [2 * backoff * (bdp_packets + x) for x in optimal_line_x]
+    expected_after_double_backoff = [backoff * (bdp_packets + x) for x in optimal_line_x]
+
 
     #plt.plot(optimal_line_x, optimal_line_y, color='purple', label="BDP + queue")
     plt.plot(optimal_line_x, expected_after_backoff, color='black', label=f"{2 * backoff} * (BDP + queue)")
+
+    if show_double_backoff:
+        plt.plot(optimal_line_x, expected_after_double_backoff, color='black', linestyle='--', label=f"{backoff} * (BDP + queue)")
 
     plt.xlabel('Queue size (packets)', fontsize=28)
     plt.ylabel('Packets', fontsize=28)
@@ -81,8 +86,8 @@ def plot_ssthresh_w_backoff(queues: list[int], bdp_packets: int, sshtresh: list[
 
     plt.grid(True)
 
-    plt.xticks(np.arange(min(queues)-5, max(queues)+5, step=500), fontsize=24)
-    plt.yticks(np.arange(0, max(sshtresh) + 50, step=500), fontsize=24)
+    plt.xticks(np.arange(min(queues)-5, max(queues)+5, step=25), fontsize=24)
+    plt.yticks(np.arange(0, max(sshtresh) + 50, step=50), fontsize=24)
     plt.show()
 
     if save:

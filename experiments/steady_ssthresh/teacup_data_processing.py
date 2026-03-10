@@ -15,12 +15,10 @@ def get_content_from_file(experiment_file: str, experiment_path: str) -> list[st
 
 def get_metric_from_list(lines: list[str], metric_type: str) -> list[tuple[int, float]]:
     metric = []
-    metric_line = []
     for line in lines:
         line = line.split(" ")
         if len(line) > 3:
             ssthresh = next((w for w in line if metric_type in w), None)
-            cwnd_s = next((w for w in line if "cwnd" in w), None)
 
             if ssthresh is not None:
                 metric.append((int(ssthresh.split(":")[1]), float(line[0])))
