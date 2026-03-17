@@ -39,6 +39,10 @@ def same_address(pattern: str, actual: str) -> bool:
         return False
 
     prefix = pattern[:-2]  # strip ".X"
+
+    #if not prefix == actual[:last_dot]:
+    #    print(f"Prefix -{prefix}-, last dot: -{actual[:last_dot]}-")
+
     return prefix == actual[:last_dot]
 
 
@@ -195,21 +199,18 @@ def handle_send_event(cfg: FlowConfig, info: LossInfo, st: CCState, line: list[s
 
     gap, st.prev_snd_time = snd_timegap(time, st.prev_snd_time)
         
+
     st.prev_seqno = seq_hi
 
     sent = seq_hi - seq_lo
     
     st.sndwnd -= sent
     st.in_fligh += sent
+
+    if st.in_fligh > st.max_in_flight:
+        st.max_in_flight = st.in_fligh
     
     st.total_sent_bytes += sent
-    
-    # BDP (125 packets) + queue (100 packets)
-    if st.total_sent_bytes_at_full == 0.0 and st.in_fligh >= 325800:
-        st.total_sent_bytes_at_full = st.total_sent_bytes
-        st.cwnd_at_link_full = st.cwnd
-        with open("bytes.txt", "a+") as f:
-            f.write(f"{st.total_sent_bytes}\n")
 
     return False
 
@@ -262,7 +263,7 @@ def process_trace(file: TextIO, cfg: FlowConfig, info: LossInfo, initial_cwnd: f
             handle_send_event(cfg, info, st, line)
   
 
-        elif same_address("10.100.21.1.6000", line[2]) and line[7] == "ack":
+        elif same_address(cfg.dst, line[2]) and line[7] == "ack":
             should_stop = handle_ack_event(st, line, cfg.output_file)
             if should_stop:
                 break
@@ -276,25 +277,28 @@ def process_trace(file: TextIO, cfg: FlowConfig, info: LossInfo, initial_cwnd: f
 # ----------------------------
 
 def usage_exit() -> None:
+    print("=== Wrong number of arguments ===")
     print("Parameters: filename source src_port destination dst_port mss")
     print("Any port: use X  (instead of * - less problematic in scripts)")
     sys.exit(1)
 
 
-def parse_args(argv: list[str]) -> FlowConfig:
-    if len(argv) != 7:
-        usage_exit()
-
-    filename = argv[1]
-    src = f"{argv[2]}.{argv[3]}"
-    dst = f"{argv[4]}.{argv[5]}"
-    mss = float(argv[6])
-    output_file = argv[7]
-    return FlowConfig(filename=filename, src=src, dst=dst, mss=mss, output_file=output_file)
-
-
-def pcap_get_max_flight_size_slow_start(argv: list[str]) -> int:
-    cfg = parse_args(argv)
+def pcap_get_max_flight_size_slow_start(
+        input_filename: str,
+        ip_source: str,
+        port_source: str,
+        ip_dest: str,
+        port_dest: str,
+        mss: float,
+        output_filename:str
+) -> int:
+    cfg = FlowConfig(
+        filename=input_filename,
+        src=f"{ip_source}.{port_source}",
+        dst=f"{ip_dest}.{port_dest}",
+        mss=mss,
+        output_file=output_filename
+    )
 
     try:
         with open(cfg.filename, "r") as f:
@@ -305,3 +309,4 @@ def pcap_get_max_flight_size_slow_start(argv: list[str]) -> int:
     except IOError:
         print("couldn't read the input file.")
         return 2
+
