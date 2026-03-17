@@ -6,7 +6,7 @@ from experiments.max_flightsize.pcap_parsing.pcap_ss import pcap_get_max_flight_
 INPUT_DATA_PATH = "../raw_data"
 OUTPUT_DATA_PATH = "../parsed_data"
 
-def run_all_in_experiment(experiment_config: ExperimentConfig):
+def parse_all_in_experiment(experiment_config: ExperimentConfig):
     for bandwidth in experiment_config.bandwidths:
         for queue in experiment_config.queues:
             for run in range(experiment_config.runs):

@@ -40,9 +40,6 @@ def same_address(pattern: str, actual: str) -> bool:
 
     prefix = pattern[:-2]  # strip ".X"
 
-    #if not prefix == actual[:last_dot]:
-    #    print(f"Prefix -{prefix}-, last dot: -{actual[:last_dot]}-")
-
     return prefix == actual[:last_dot]
 
 
@@ -267,9 +264,6 @@ def process_trace(file: TextIO, cfg: FlowConfig, info: LossInfo, initial_cwnd: f
             should_stop = handle_ack_event(st, line, cfg.output_file)
             if should_stop:
                 break
-            
-        else:
-            print(f"dest: {cfg.dst}, line: {line[2]} line7: {line[7]}", file=sys.stderr)
 
 
 # ----------------------------
